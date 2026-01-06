@@ -34,10 +34,35 @@ public class PlaywrightTest {
         }
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        context.close();
-        browser.close();
-        playwright.close();
+        if (page != null) {
+            try {
+                page.close();
+            } catch (Exception ignored) {
+            }
+            page = null;
+        }
+        if (context != null) {
+            try {
+                context.close();
+            } catch (Exception ignored) {
+            }
+            context = null;
+        }
+        if (browser != null) {
+            try {
+                browser.close();
+            } catch (Exception ignored) {
+            }
+            browser = null;
+        }
+        if (playwright != null) {
+            try {
+                playwright.close();
+            } catch (Exception ignored) {
+            }
+            playwright = null;
+        }
     }
 }
