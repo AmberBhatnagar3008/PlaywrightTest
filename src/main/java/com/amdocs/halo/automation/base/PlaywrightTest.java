@@ -22,12 +22,13 @@ public class PlaywrightTest {
 
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
-                        .setHeadless(false)
+                        .setHeadless(true)
                         .setSlowMo(500)
         );
 
         context = browser.newContext();
-        page = context.newPage();}
+        page = context.newPage();
+        }
         catch (PlaywrightException pe) {
             System.err.println("Playwright initialization error: " + pe.getMessage());
         }
