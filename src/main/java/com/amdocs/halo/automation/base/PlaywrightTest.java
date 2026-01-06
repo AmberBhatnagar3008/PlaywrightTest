@@ -8,6 +8,7 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.PlaywrightException;
 
 public class PlaywrightTest {
  protected Playwright playwright;
@@ -17,7 +18,7 @@ public class PlaywrightTest {
 
     @BeforeMethod
     public void setUp() {
-        playwright = Playwright.create();
+        try (Playwright playwright = Playwright.create()) {
 
         browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
@@ -26,7 +27,10 @@ public class PlaywrightTest {
         );
 
         context = browser.newContext();
-        page = context.newPage();
+        page = context.newPage();}
+        catch (PlaywrightException pe) {
+            System.err.println("Playwright initialization error: " + pe.getMessage());
+        }
     }
 
     @AfterMethod
