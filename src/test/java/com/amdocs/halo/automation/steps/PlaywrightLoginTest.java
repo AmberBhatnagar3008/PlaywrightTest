@@ -41,6 +41,7 @@ public class PlaywrightLoginTest extends PlaywrightTest {
             page.locator("button[type='submit']").click();
 
             String successMessage = page.locator("#flash").textContent();
+            System.out.println(successMessage);
 
             Assert.assertTrue(successMessage.contains("You logged into a secure area!"));
         
