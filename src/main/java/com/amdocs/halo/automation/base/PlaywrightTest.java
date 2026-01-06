@@ -18,9 +18,9 @@ public class PlaywrightTest {
 
     @BeforeMethod
     public void setUp() {
-        try (Playwright playwright = Playwright.create()) {
-
-        browser = playwright.chromium().launch(
+        try{
+            playwright = Playwright.create();
+            browser = playwright.chromium().launch(
                 new BrowserType.LaunchOptions()
                         .setHeadless(true)
                         .setSlowMo(500)
