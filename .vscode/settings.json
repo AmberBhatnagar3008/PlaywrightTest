@@ -1,5 +1,10 @@
 {
+    "cucumberautocomplete.steps": [
+        "test/features/step_definitions/*.js",
+        "node_modules/qa-lib/src/step_definitions/*.js"
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true,
     "java.compile.nullAnalysis.mode": "automatic",
-    "java.debug.settings.onBuildFailureProceed": true,
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "maven.view": "hierarchical"
 }

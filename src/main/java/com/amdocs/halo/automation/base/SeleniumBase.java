@@ -95,11 +95,11 @@ public class SeleniumBase
 		driver.quit();
 	}
 	
-	/*public static void main(String args[]) throws InterruptedException
+	public static void main(String args[]) throws InterruptedException, IOException
 	{
 		SeleniumBase sb= new SeleniumBase();
-		sb.initialization();
+		sb.initialization("ABCD");
 	}
-*/
+
 }
 

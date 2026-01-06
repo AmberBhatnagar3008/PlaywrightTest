@@ -9,5 +9,4 @@ public class HaloOrGammaOrder
  		haloOrderGamma=order;
  		System.out.println(haloOrderGamma);
  	}
-
 }

@@ -53,7 +53,7 @@
 						 
                     </systemPropetryVariables>
                                <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>testng_Regression.xml</suiteXmlFile> 
                     </suiteXmlFiles>
                             <!--      <suiteXmlFiles>
                                          <suiteXmlFile>testng.xml</suiteXmlFile>
@@ -197,19 +197,34 @@
               <dependency>
                      <groupId>org.seleniumhq.selenium</groupId>
                      <artifactId>selenium-java</artifactId>
-                     <version>3.12.0</version>
+                     <version>4.14.0</version>
               </dependency>
               <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
               <dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.4.1</version> <!-- Use latest version -->
+</dependency>
+<dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>1.42.0</version>
+        </dependency>
+              <dependency>
                      <groupId>io.rest-assured</groupId>
                      <artifactId>rest-assured</artifactId>
-                     <version>3.0.0</version>
+                     <version>5.5.0</version>
               </dependency>
               <dependency>
                      <groupId>org.json</groupId>
                      <artifactId>json</artifactId>
                      <version>20180130</version>
               </dependency>
+              <dependency>
+    <groupId>io.cucumber</groupId>
+    <artifactId>cucumber-jvm-deps</artifactId>
+    <version>1.0.6</version>
+</dependency>
              <!--  <dependency>
 <groupId>io.rest-assured</groupId>
 <artifactId>json-schema-validator</artifactId>

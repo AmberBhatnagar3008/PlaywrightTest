@@ -106,8 +106,8 @@ public class GetProjectId extends ParseXmls
 		 return orderDetails[1];
 	 }
 	   
-	 /*public static void main(String args[]) throws Exception
+	 public static void main(String args[]) throws Exception
 	 {
 		 GetProjectId.getProjIdFrmResponse("ST3");
-	 }*/
+	 }
 }

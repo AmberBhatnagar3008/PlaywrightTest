@@ -6,11 +6,16 @@
       <class name="com.testng.Test1_RestAssured"/>
     </classes>
   </test> Test -->
-   <test name="HALOTesting" annotations="JDK" preserve-order="true">
+  <!-- <test name="HALOTesting" annotations="JDK" preserve-order="true">
         <classes>
             <class name="com.amdocs.halo.automation.executor.TestRunner_Regression"/>
         </classes>
-    </test>
-    
+    </test> -->
+
+  <test name="UI Tests">
+        <classes>
+            <class name="com.amdocs.halo.automation.steps.PlaywrightLoginTest"/>
+        </classes>
+    </test>  
   
 </suite> <!-- Suite -->
