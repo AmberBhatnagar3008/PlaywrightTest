@@ -8,9 +8,11 @@ import com.amdocs.halo.automation.base.PlaywrightTest;
 public class PlaywrightLoginTest extends PlaywrightTest {
 
     @Test
-    public void verifyLoginPageTitle() {
+    public void verifyLoginPageTitle()
+    {
 
-        try {
+        try 
+        {
         page.navigate("https://the-internet.herokuapp.com/login");
 
         String title = page.title();
@@ -18,18 +20,25 @@ public class PlaywrightLoginTest extends PlaywrightTest {
 
         Assert.assertTrue(title.contains("The Internet"));
 
-        } catch (Exception e) {
-                System.err.println("An error occurred during operations: " + e.getMessage());
-                // Handle exceptions gracefully, potentially taking a screenshot
-            } finally {
-                // Ensure the browser and context are closed
-                if (browser != null) {
-                    browser.close();
-                }}
+        } 
+        catch (Exception e) 
+        {
+                    System.err.println("An error occurred during operations: " + e.getMessage());
+                    // Handle exceptions gracefully, potentially taking a screenshot
+        } 
+        finally 
+        {
+                    // Ensure the browser and context are closed
+            if (browser != null) 
+            {
+                        browser.close();
+            }
+        }
     }
 
     @Test
-    public void loginWithValidCredentials() {
+    public void loginWithValidCredentials() 
+    {
 
         try {
         page.navigate("https://the-internet.herokuapp.com/login");
@@ -42,12 +51,19 @@ public class PlaywrightLoginTest extends PlaywrightTest {
 
         Assert.assertTrue(successMessage.contains("You logged into a secure area!"));
     
-    } catch (Exception e) {
-                System.err.println("An error occurred during operations: " + e.getMessage());
-                // Handle exceptions gracefully, potentially taking a screenshot
-            } finally {
-                // Ensure the browser and context are closed
-                if (browser != null) {
-                    browser.close();
-                }}
+        } 
+        catch (Exception e) 
+        {
+                    System.err.println("An error occurred during operations: " + e.getMessage());
+                    // Handle exceptions gracefully, potentially taking a screenshot
+        } 
+        finally 
+        {
+                    // Ensure the browser and context are closed
+            if (browser != null) 
+            {
+                        browser.close();
+            }
+        }
+    }   
 }
