@@ -9,6 +9,9 @@
 name: Java CI with Maven
 
 on:
+  schedule:
+    # This cron expression schedules the job to run every day at midnight UTC
+    - cron: "*/15 * * * *" 
   push:
     branches: [ "main" ]
   pull_request:
