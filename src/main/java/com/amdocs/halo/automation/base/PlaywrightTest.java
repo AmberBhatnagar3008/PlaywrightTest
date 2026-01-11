@@ -11,23 +11,24 @@ import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.PlaywrightException;
 
 public class PlaywrightTest {
- protected Playwright playwright;
-    protected Browser browser;
-    protected BrowserContext context;
-    protected Page page;
+    protected ThreadLocal<Playwright> playwright = new ThreadLocal<>();
+    protected ThreadLocal<Browser> browser = new ThreadLocal<>();
+    protected ThreadLocal<BrowserContext> context = new ThreadLocal<>();
+    protected ThreadLocal<Page> page = new ThreadLocal<>();
+    
 
     @BeforeMethod
     public void setUp() {
         try{
-            playwright = Playwright.create();
-            browser = playwright.chromium().launch(
+            playwright.set(Playwright.create());
+            browser.set(playwright.get().chromium().launch(
                 new BrowserType.LaunchOptions()
                         .setHeadless(true)
-                        .setSlowMo(500)
+                        .setSlowMo(500))
         );
 
-        context = browser.newContext();
-        page = context.newPage();
+        context.set(browser.get().newContext());
+        page.set(context.get().newPage());
         }
         catch (PlaywrightException pe) {
             System.err.println("Playwright initialization error: " + pe.getMessage());
@@ -38,28 +39,28 @@ public class PlaywrightTest {
     public void tearDown() {
         if (page != null) {
             try {
-                page.close();
+                page.get().close();
             } catch (Exception ignored) {
             }
             page = null;
         }
         if (context != null) {
             try {
-                context.close();
+                context.get().close();
             } catch (Exception ignored) {
             }
             context = null;
         }
         if (browser != null) {
             try {
-                browser.close();
+                browser.get().close();
             } catch (Exception ignored) {
             }
             browser = null;
         }
         if (playwright != null) {
             try {
-                playwright.close();
+                playwright.get().close();
             } catch (Exception ignored) {
             }
             playwright = null;

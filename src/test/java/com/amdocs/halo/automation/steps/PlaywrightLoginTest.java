@@ -13,9 +13,9 @@ public class PlaywrightLoginTest extends PlaywrightTest {
 
         try 
         {
-            page.navigate("https://the-internet.herokuapp.com/login");
+            page.get().navigate("https://the-internet.herokuapp.com/login");
 
-            String title = page.title();
+            String title = page.get().title();
             System.out.println("Page Title: " + title);
 
             Assert.assertTrue(title.contains("The Internet"));
@@ -34,13 +34,13 @@ public class PlaywrightLoginTest extends PlaywrightTest {
 
         try 
         {
-            page.navigate("https://the-internet.herokuapp.com/login");
+            page.get().navigate("https://the-internet.herokuapp.com/login");
 
-            page.locator("#username").fill("tomsmith");
-            page.locator("#password").fill("SuperSecretPassword!");
-            page.locator("button[type='submit']").click();
+            page.get().locator("#username").fill("tomsmith");
+            page.get().locator("#password").fill("SuperSecretPassword!");
+            page.get().locator("button[type='submit']").click();
 
-            String successMessage = page.locator("#flash").textContent();
+            String successMessage = page.get().locator("#flash").textContent();
             System.out.println(successMessage);
 
             Assert.assertTrue(successMessage.contains("You logged into a secure area!"));
